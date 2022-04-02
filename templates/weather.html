@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/weather.css">
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="info-container">
+
+        <div class="adjust">
+        <div class="circle">
+        <ul>
+            {% for i in firstd %}
+
+            <li><b>{{ i }}</b></li>
+
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="circle k">
+        <div class="weathericoon">
+
+        {% if request.method=='POST' %}
+        <img width="100%"  src="http://openweathermap.org/img/w/{{ secondd[3] |safe}}.png">
+        {% endif %}
+
+        </div>
+        <div class="ul">
+            <ul>
+           {% for i in secondd %}
+
+            <li><b>{{ i }}</b></li>
+
+            {% endfor %}
+        </ul>
+        </div>
+        </div>
+            </div>
+    </div>
+    <div class="location-div">
+        <form action="/"  method="post" id="form">
+            <div class="form-group">
+                <label for="cityname"></label>
+                <input type="text" required placeholder="name of city" name="city_name" class="inputstyle"   id="cityname">
+            </div>
+            <div class="form-group reduce-margin">
+                <label for="statecode"></label>
+                <input type="text" placeholder="code of city" name="state_code" class="inputstyle" id="statecode">
+            </div>
+            <button class="arrangebutton" id="submit" name="submit" type="submit"> Submit</button>
+        </form>
+    </div>
+
+
+
+</div>
+
+<script src="../static/scripts/jquery-3.6.0.slim.js"></script>
+<script src="../static/scripts/fetchresources.js"></script>
+ <script src="../static/scripts/country-states.js"></script>
+<script src="../static/scripts/weather.js"></script>
+
+</body>
+</html>
